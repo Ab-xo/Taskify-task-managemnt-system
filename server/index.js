@@ -39,7 +39,7 @@ app.use(generalLimiter);
 // CORS configuration
 app.use(cors({
   origin: [
-    origin: 'https://your-frontend.onrender.com',
+    origin: 'https://taskify-task-managemnt-system.onrender.com',
     credentials: true
   ],
   credentials: true,
