@@ -39,9 +39,8 @@ app.use(generalLimiter);
 // CORS configuration
 app.use(cors({
   origin: [
-    'http://localhost:5173', 
-    'http://localhost:3000',
-    'https://jazzy-pavlova-fc5ab2.netlify.app'
+    origin: 'https://your-frontend.onrender.com',
+    credentials: true
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
