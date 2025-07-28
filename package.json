@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0",
+  "source": "./index.html",
+  "name": "taskify",
+  "description": "Advanced Task Management System - A modern full-stack application built with React, Node.js, Express, and MongoDB",
+  "author": "Your Name",
+  "license": "MIT",
+  "keywords": [
+    "task-manager",
+    "react",
+    "nodejs",
+    "mongodb",
+    "typescript",
+    "express"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "server": "nodemon server/index.js",
+    "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
+    "start": "node server/index.js",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
+    "bcryptjs": "^2.4.3",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "2.1.1",
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.0.1",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.453.0",
+    "mongoose": "^7.8.7",
+    "morgan": "^1.10.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1",
+    "tailwind-merge": "2.5.4",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0",
+    "@vitejs/plugin-react": "4.3.4",
+    "concurrently": "^8.2.0",
+    "esbuild": "0.24.0",
+    "globals": "15.12.0",
+    "nodemon": "^3.0.1",
+    "tailwindcss": "3.4.16",
+    "vite": "6.0.4"
+  },
+  "alias": {
+    "@/*": "./src/components/ui/$1"
+  }
+}
