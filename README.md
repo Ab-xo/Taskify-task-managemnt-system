@@ -63,8 +63,9 @@ A modern, full-stack task management application built with React, Node.js, Expr
 
 ### **1. Clone the Repository**
 ```bash
-git clone <your-repo-url>
-cd taskify
+git clone https://github.com/Ab-xo/Taskify-task-managemnt-system.git
+cd Taskify-task-managemnt-system
+
 ```
 
 ### **2. Install Dependencies**
@@ -75,10 +76,11 @@ npm install
 ### **3. Environment Setup**
 Create a `.env` file in the root directory:
 ```env
-MONGO_URI=mongodb+srv://your-username:your-password@cluster.mongodb.net/taskmanager?retryWrites=true&w=majority
+MONGO_URI=your_mongo_connection_string
 PORT=5000
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+JWT_SECRET=your_jwt_secret
 NODE_ENV=development
+
 ```
 
 ### **4. MongoDB Setup**
@@ -175,22 +177,26 @@ npm run dev
 
 ## 🔧 **Development**
 
-### **Project Structure**
-```
-taskify/
-├── src/                    # Frontend React app
-│   ├── components/         # Reusable UI components
-│   ├── contexts/          # React Context providers
-│   ├── screens/           # Page components
-│   ├── services/          # API service layer
-│   └── types/             # TypeScript type definitions
-├── server/                # Backend Node.js app
-│   ├── config/            # Database configuration
-│   ├── middleware/        # Express middleware
-│   ├── models/            # Mongoose models
-│   └── routes/            # API route handlers
-└── package.json           # Dependencies and scripts
-```
+taskify-task-management-system/
+├── client/                     # Frontend React App
+│   └── src/
+│       ├── components/         # Reusable UI components
+│       ├── contexts/          # React Context providers
+│       ├── screens/           # Main pages (Login, Signup, Dashboard, etc.)
+│       ├── services/          # API request functions
+│       └── types/             # TypeScript type definitions (if using TS)
+├── server/                     # Backend Node.js App
+│   ├── config/                 # DB config and environment setup
+│   ├── middleware/            # Express middleware (auth, error handlers)
+│   ├── models/                # Mongoose schemas/models
+│   ├── routes/                # Express routes
+│   └── index.js               # Entry point of server
+├── logs/                      # Server logs
+├── .env                       # Environment variables
+├── .gitignore                 # Git ignored files
+├── package.json               # Root level scripts (use workspaces or split)
+├── package-lock.json
+└── README.md                  # Project instructions and documentation
 
 ### **Available Scripts**
 - `npm run dev` - Start frontend development server
@@ -224,27 +230,38 @@ taskify/
 1. Set environment variables
 2. Deploy the server code
 3. Ensure MongoDB connection
+🔧 Environment Setup & Configuration
+To ensure proper communication between the client and server, follow these steps:
 
-## 🤝 **Contributing**
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+Client-Side (client/.env)
+Create a .env file in the client folder and add the following:
+
+VITE_API_URL=https://your-deployed-backend-url.com/api
+Replace the URL with your actual deployed backend URL. This ensures all API requests from the frontend are routed correctly.
+
+Server-Side (server/index.js)
+In your backend code (server/index.js), make sure the CORS configuration allows your deployed frontend domain:
+const cors = require('cors');
+
+app.use(cors({
+  origin: [
+  'https://taskify-task-managemnt-system.onrender.com', // <-- Your frontend URL
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+}));
+
+Update the origin array with your deployed frontend URL to avoid CORS issues.
+
+🌐 Live Deployment
+Frontend: [https://taskify-task-managemnt-system.onrender.com]
+
+Backend API: [https://taskify-task-managemnt-system-server.onrender.com]
+
+Update API_BASE_URL in your frontend to match the deployed backend URL.
 
 ## 📄 **License**
 MIT License - feel free to use this project for personal or commercial purposes.
-
-## 🆘 **Support**
-If you encounter any issues:
-1. Check the console for error messages
-2. Verify your MongoDB connection
-3. Ensure all environment variables are set
-4. Check that both frontend and backend are running
-
-## 🎉 **Acknowledgments**
-Built with modern web technologies and best practices for a professional task management experience.
-
----
 
 **Happy Task Managing! 🚀✨**
