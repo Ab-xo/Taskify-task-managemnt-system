@@ -77,20 +77,26 @@ export const Login: React.FC = () => {
               </div>
 
               <div className="flex items-center justify-between">
-                <input
-                  type="checkbox"
-                  id="showPassword"
-                  checked={showPassword}
-                  onChange={(e) => setShowPassword(e.target.checked)}
-                  className="mr-2"
-                />
-                <label htmlFor="showPassword" className="text-sm text-gray-600">
-                  Show password
-                </label>
-                <a href="#" className="text-sm text-gray-600 hover:text-black">
-                  Forgot password?
-                </a>
-              </div>
+  {/* Checkbox and label group */}
+  <div className="flex items-center">
+    <input
+      type="checkbox"
+      id="showPassword"
+      checked={showPassword}
+      onChange={(e) => setShowPassword(e.target.checked)}
+      className="mr-2"
+    />
+    <label htmlFor="showPassword" className="text-sm text-gray-600">
+      Show password
+    </label>
+  </div>
+
+  {/* Forgot password link */}
+  <a href="#" className="text-sm text-gray-600 hover:text-black">
+    Forgot password?
+  </a>
+</div>
+
 
               <Button
                 type="submit"
